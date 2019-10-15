@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block body_block %}
+
+<section id="listings" class="py-4 mt-2">
+    <div class="container">
+      <div class="row py-5">
+                {% for product in product_list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card-body" style="background: ghostwhite">
+              <div class="listing-heading text-center">
+                          <img src="{{product.image.url}}" alt="image" width="200" height="200">
+              </div>
+              <hr>
+              <div class="row py-2 text-center">
+                  <div class="col-12">
+                      <p class="text-danger">
+                        {{product.price|intcomma}}
+                      </p>
+                      <p class="text-primary">
+                          {{product.name}}
+                      </p>
+
+                  </div>
+                  <hr>
+
+                   <a href="#" class="btn btn-warning btn-block" id="button1"
+                   >Add to Cart</a>
+              </div>
+            </div>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+</section>
+
+    {% endblock %}
